@@ -1,15 +1,7 @@
 <div class="row">
     <div class="col-6">
         <%= form_with(model: task) do |f| %>
-            <% if task.errors.any? %>
-                <div id="error_explanation" class="alert alert-warning">
-                    <ul>
-                        <% task.errors.full_messages.each do |msg| %>
-                            <li><%= msg %></li>
-                        <% end %>
-                    </ul>
-                </div>
-            <% end %>
+            <%= render 'layouts/error_messages', model: task %>
         <div class="mb-3">
             <%= f.label :content, 'タスク' %>
             <%= f.text_field :content, class: 'form-control' %>
